@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "outDir": "./dist",
+    "target": "esnext",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "strict": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true
+  },
+  "include": [
+    "typings", 
+    "typings.d.ts", 
+    "**/*.ts", 
+    "**/*.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.*",
+    "**/*.test.*"
+  ]
+}

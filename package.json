@@ -1,0 +1,68 @@
+{
+  "name": "boilerplate-tdd-api",
+  "description": "Boilerplate Node + Express + TypeScript + Jest + Sequelize",
+  "version": "0.0.0",
+  "author": "Denner Azevedo",
+  "scripts": {
+    "prebuild": "rm -rf ./dist && mkdir dist",
+    "build": "yarn prebuild && tsc",
+    "start": "yarn build && NODE_PATH=./dist",
+    "dev": "nodemon src/server.ts",
+    "test": "NODE_ENV=test jest",
+    "lint": "yarn lint:ts",
+    "create:migration": "sequelize migration:generate --models-path src/data/models --migrations-path src/data/migrations --name",
+    "db:migrate": "yarn build && yarn db:migrate:no-build"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix"
+    ],
+    ".env*": [
+      "yarn lint:dotenv"
+    ]
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-validation": "^3.0.6",
+    "joi": "^17.4.0",
+    "lodash.uniqby": "^4.7.0",
+    "moment-timezone": "^0.5.33",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.3.5",
+    "sequelize-cli": "^6.2.0",
+    "ts-node": "^10.8.1"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.0",
+    "@types/dotenv": "^8.2.0",
+    "@types/express-serve-static-core": "^4.17.12",
+    "@types/express-session": "^1.17.0",
+    "@types/jest": "^26.0.13",
+    "@types/node": "^14.6.4",
+    "@types/supertest": "^2.0.10",
+    "@types/validator": "^13.1.1",
+    "@typescript-eslint/eslint-plugin": "^4.1.0",
+    "@typescript-eslint/parser": "^4.1.0",
+    "eslint": "^7.8.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-json": "^2.1.2",
+    "eslint-plugin-security": "^1.4.0",
+    "husky": "^4.3.0",
+    "jest": "^26.4.2",
+    "lint-staged": "^10.3.0",
+    "node-mocks-http": "^1.9.0",
+    "nodemon": "^2.0.4",
+    "open-cli": "^6.0.1",
+    "supertest": "^4.0.2",
+    "ts-jest": "^26.3.0",
+    "typescript": "^4.7.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn audit"
+    }
+  }
+}

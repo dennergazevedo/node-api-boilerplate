@@ -1,0 +1,9 @@
+# BUILD FOLDER
+dist
+
+# ENVIROMENT VARIABLES
+.env
+.env.dist
+
+# DEPENDENCIES
+node_modules
