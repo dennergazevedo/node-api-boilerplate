@@ -17,16 +17,6 @@ module.exports = {
     '!src/routes/**/*.ts',
     '!src/config/environment/schemas/*.ts',
   ],
-  coverageDirectory: '<rootDir>/coverage',
-  coverageReporters: ['lcov', 'text', 'text-summary'],
-  reporters: ['default', './tools/coverage-total-reporter.js'],
-  coverageThreshold: {
-    src: {
-      branches: 75,
-      functions: 90,
-      lines: 90,
-      statements: 90,
-    },
-  },
+  coverageDirectory: "__tests__/coverage",
   coveragePathIgnorePatterns: ['./src/middlewares/error/validationError.*.ts'],
 };
